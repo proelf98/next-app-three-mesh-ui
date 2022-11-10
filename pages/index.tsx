@@ -1,7 +1,9 @@
-import { Canvas, ThreeElements, useFrame } from "@react-three/fiber";
+import { Canvas, extend, ThreeElements, useFrame } from "@react-three/fiber";
 import { VRButton, XR } from "@react-three/xr";
 import React, { useRef, useState } from "react";
 import * as THREE from "three";
+import ThreeMeshUI from "three-mesh-ui";
+// extend(ThreeMeshUI);
 
 function Box(props: any) {
   const mesh = useRef<THREE.Mesh>(null);
