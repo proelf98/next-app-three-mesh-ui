@@ -1,6 +1,9 @@
-import { Canvas, ThreeElements, useFrame } from "@react-three/fiber";
+import { Canvas, extend, ThreeElements, useFrame } from "@react-three/fiber";
+import { VRButton, XR } from "@react-three/xr";
 import React, { useRef, useState } from "react";
 import * as THREE from "three";
+import ThreeMeshUI from "three-mesh-ui";
+// extend(ThreeMeshUI);
 
 function Box(props: any) {
   const mesh = useRef<THREE.Mesh>(null);
@@ -27,11 +30,16 @@ function Box(props: any) {
 
 export default function App() {
   return (
-    <Canvas>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Box position={[-1.2, 0, 0]} />
-      <Box position={[1.2, 0, 0]} />
-    </Canvas>
+    <div className="containerCanvas">
+      <VRButton></VRButton>
+      <Canvas>
+        <XR>
+          <ambientLight />
+          <pointLight position={[10, 10, 10]} />
+          <Box position={[1, 0, -2]} />
+          <Box position={[-1, 0, -2]} />
+        </XR>
+      </Canvas>
+    </div>
   );
 }
