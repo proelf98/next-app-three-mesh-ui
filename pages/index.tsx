@@ -1,4 +1,5 @@
 import { Canvas, ThreeElements, useFrame } from "@react-three/fiber";
+import { VRButton, XR } from "@react-three/xr";
 import React, { useRef, useState } from "react";
 import * as THREE from "three";
 
@@ -28,11 +29,14 @@ function Box(props: any) {
 export default function App() {
   return (
     <div className="containerCanvas">
+      <VRButton></VRButton>
       <Canvas>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+        <XR>
+          <ambientLight />
+          <pointLight position={[10, 10, 10]} />
+          <Box position={[1, 0, -2]} />
+          <Box position={[-1, 0, -2]} />
+        </XR>
       </Canvas>
     </div>
   );
